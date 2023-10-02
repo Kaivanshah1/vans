@@ -30,31 +30,30 @@ import { AuthProvider } from "./components/Auth";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <AuthProvider>
-      <Route element={<Header />} errorElement={<Error />}>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="vans" element={<Vans1 />} loader={kk}>
-          <Route index element={<Vans1 />} />
-          <Route path=":id" element={<Vansdetail />} />
-        </Route>
-        <Route path="*" element={<Notfound />} />
-        <Route path="host" element={<Host />}>
-          <Route path="vans" element={<Hostvans />} />
-          <Route index element={<Dashbord />} />
-          <Route path="income" element={<Income />} />
-          <Route path="review" element={<Review />} />
-          <Route path="vans/:id" element={<Hostvandetail />}>
-            <Route index element={<Detail />} />
-            <Route path="pricing" element={<Pricing />} />
-            <Route path="photos" element={<Photos />} />
-          </Route>
-        </Route>
-        <Route path="/profile" element={<Profile />}></Route>
+    <Route element={<Header />} errorElement={<Error />}>
+      <Route path="/" element={<Home />} />
+      <Route path="about" element={<About />} />
+      <Route path="vans" element={<Vans1 />} loader={kk}>
+        <Route index element={<Vans1 />} />
+        <Route path="/vans/:id" element={<Vansdetail />} />
       </Route>
-    </AuthProvider>
+      <Route path="*" element={<Notfound />} />
+      <Route path="host" element={<Host />}>
+        <Route path="vans" element={<Hostvans />} />
+        <Route index element={<Dashbord />} />
+        <Route path="income" element={<Income />} />
+        <Route path="review" element={<Review />} />
+        <Route path="vans/:id" element={<Hostvandetail />}>
+          <Route index element={<Detail />} />
+          <Route path="pricing" element={<Pricing />} />
+          <Route path="photos" element={<Photos />} />
+        </Route>
+      </Route>
+      <Route path="/profile" element={<Profile />} />
+    </Route>
   )
 );
+
 export default function App() {
   return (
     <div>

@@ -21,9 +21,12 @@ export default function Home() {
   const kalabala = typefilter
     ? vans.filter((char) => char.type.toLowerCase() === typefilter)
     : vans;
-  throw {
-    message: "this is error",
-  };
+
+  // Move the throw statement to an appropriate location, if needed.
+  // throw {
+  //   message: "this is error",
+  // };
+
   const kala = kalabala.map((items) => (
     <Link key={items.id} to={`/vans/${items.id}`}>
       <div key={items.id} className="van-tile">
@@ -52,7 +55,8 @@ export default function Home() {
       <Link to="?type=rugged">Rugged</Link>
       <Link to="?type=luxury">Luxury</Link>
       <Link to=".">All</Link>
-      <h1>{error.message}</h1>
+      {/* Display the error message, if needed */}
+      {/* <h1>{error.message}</h1> */}
       {kala}
     </div>
   );

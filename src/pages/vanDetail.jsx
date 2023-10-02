@@ -2,14 +2,14 @@ import React from "react";
 import { useParams, useLocation, Link } from "react-router-dom";
 
 export default function Vansdetail() {
-  const params = useParams();
+  const { id } = useParams();
   const location = useLocation();
   const [van, setVan] = React.useState(null);
   React.useEffect(() => {
-    fetch(`/api/vans/${params.id}`)
+    fetch(`/api/vans/${id}`)
       .then((res) => res.json())
       .then((data) => setVan(data));
-  }, [params.id]);
+  }, [id]);
 
   const search = location.state?.search || "";
   const typ = location.state?.type || "all";
@@ -29,7 +29,7 @@ export default function Vansdetail() {
           <p>{van.vans.description}</p>
         </div>
       ) : (
-        <h2>Loading...</h2>
+        <h2>Loading..</h2>
       )}
     </div>
   );
